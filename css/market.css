@@ -1,0 +1,31 @@
+#market {
+    margin-left: 200px;
+    height: 100%;
+    padding: 30px;
+    position: fixed;
+    display: none;
+}
+.table_market td{
+    text-align: center;
+    width: 150px;
+    height: 150px;
+}
+.table_market span:first-of-type {
+    font-size: 20px;
+    font-weight: bold;
+}
+.button {
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  margin: 3px;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: rgba(85, 85, 85, 0.2);
+}
+.button:hover {
+    background-color: rgba(85, 85, 85, 0.3);
+}
+.button:active {
+    background-color: rgba(85, 85, 85, 0.5);
+}

@@ -1,0 +1,10 @@
+#main {
+    margin-left: 200px;
+    height: 100%;
+    padding: 20px;
+    position: fixed;
+}
+body hr {
+    height: 2px;
+    background-color: black;
+}

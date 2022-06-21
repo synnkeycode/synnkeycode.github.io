@@ -1,0 +1,74 @@
+html,body {
+    margin:0;
+    padding:0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+#home {
+    margin-left: 200px;
+    height: 100%;
+    padding: 30px;
+    position: fixed;
+    display: none;
+}
+.table_home td {
+    border: 2px solid black;
+    width: 400px;
+    height: auto;
+}
+.table_home img {
+    width: 30px;
+    height: 30px;
+    padding-right: 15px;
+}
+.per_click {
+    font-size: 14px;
+}
+.time {
+    display: flex;
+    align-items:center;
+}
+.table_home td div:first-of-type {
+    font-size: 20px;
+    font-weight: bold;
+}
+.table_home td div:first-of-type img {
+    width: 20px;
+    height: 20px;
+    padding-right: 0px;
+}
+.table_home td div:first-of-type div {
+    float: right;
+}
+.table_home td:hover {
+    background-color: rgba(85, 85, 85, 0.2);
+}
+
+#myProgress {
+    width: 100%;
+    background-color: grey;
+}
+#myBarForest {
+    width: 0%;
+    height: 15px;
+    background-color: black;
+}
+#myBarQuarry {
+    width: 0%;
+    height: 15px;
+    background-color: black;
+}
+#myBarField {
+    width: 0%;
+    height: 15px;
+    background-color: black;
+}
+#myBarPlain {
+    width: 0%;
+    height: 15px;
+    background-color: black;
+}
+
+.locked {
+    text-align: center;
+}

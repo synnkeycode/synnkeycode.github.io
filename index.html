@@ -1,0 +1,236 @@
+<!-- TODO -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Project Idle</title>
+
+        <script src="js/update.js"></script>
+        <script src="js/home.js"></script>
+        <script src="js/upgrades.js"></script>
+        <script src="js/market.js"></script>
+
+        <link rel="stylesheet" href="css/sidebar.css">
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/home.css">
+        <link rel="stylesheet" href="css/inventory.css">
+        <link rel="stylesheet" href="css/upgrades.css">
+        <link rel="stylesheet" href="css/market.css">
+    </head>
+    <body onload="changeMain('sb_1')">
+        <div id="sidebar">
+            <div>Project Idle</div>
+            <hr>
+            <table id="stats">
+                <tr>
+                    <td colspan="2"><img src="img/coin-icon.png"><span id="money">0</span></td> <!-- Money -->
+                </tr>
+                <tr>
+                    <td><img src="img/wood-icon.png"><span id="wood_value"></span></td> <!-- Wood -->
+                    <td><img src="img/stone-icon.png"><span id="stone_value"></span></td> <!-- Stone -->
+                </tr>
+                <tr>
+                    <td><img src="img/wheat-icon.png"><span id="wheat_value"></span></td> <!-- Wheat -->
+                    <td><img src="img/meat-icon.png"><span id="meat_value"></span></td> <!-- Meat -->
+                </tr>
+            </table>
+            <hr>
+            <a class="active" id="sb_1" onclick="changeMain(id)"><img src="img/home-icon.png">Home</a></li>
+            <a id="sb_2" onclick="changeMain(id)"><img src="img/inventory-icon.png">Inventory</a></li>
+            <a id="sb_3" onclick="changeMain(id)"><img src="img/upgrade-icon.png">Upgrades</a></li>
+            <a id="sb_4" onclick="changeMain(id)"><img src="img/market-icon.png">Market</a></li>
+            <div id="popup"><span id="popup_text"></span><img id="popup_img"></div>
+        </div>
+        <div id="main"></div>
+        <div id="home">
+            <table class="table_home">
+                <tr>
+                    <td style="cursor: pointer" onclick="addWood()"> <!-- Forest -->
+                        <div>
+                            Forest
+                            <span id="wood_per_click" class="per_click"></span>
+                            <div class="time">
+                                <img src="img/time-icon.png">
+                                <span id="axe_speed"></span>
+                            </div>
+                        </div>
+                        <hr>
+                        <div id="myProgress">
+                            <div id="myBarForest"></div>
+                        </div>
+                    </td>
+                    <td style="cursor: pointer" onclick="addStone()"> <!-- Quarry -->
+                        <div>
+                            Quarry
+                            <span id="stone_per_click" class="per_click"></span>
+                            <div class="time">
+                                <img src="img/time-icon.png">
+                                <span id="pickaxe_speed"></span>
+                            </div>
+                        </div>
+                        <hr>
+                        <div id="myProgress">
+                            <div id="myBarQuarry"></div>
+                        </div>
+                    </td>
+                    <td style="cursor: pointer" onclick="addWheat()"> <!-- Field -->
+                        <div>
+                            Field
+                            <span id="wheat_per_click" class="per_click"></span>
+                            <div class="time">
+                                <img src="img/time-icon.png">
+                                <span id="sickle_speed"></span>
+                            </div>
+                        </div>
+                        <hr>
+                        <div id="myProgress">
+                            <div id="myBarField"></div>
+                        </div>
+                    </td>
+                    <td style="cursor: pointer" onclick="addMeat()"> <!-- Plain -->
+                        <div>
+                            Plain
+                            <span id="meat_per_click" class="per_click"></span>
+                            <div class="time">
+                                <img src="img/time-icon.png">
+                                <span id="bow_speed"></span>
+                            </div>
+                        </div>
+                        <hr>
+                        <div id="myProgress">
+                            <div id="myBarPlain"></div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="locked">
+                        <img src="img/unknown-icon.png">
+                    </td>
+                    <td class="locked">
+                        <img src="img/unknown-icon.png">
+                    </td>
+                    <td class="locked">
+                        <img src="img/unknown-icon.png">
+                    </td>
+                    <td class="locked">
+                        <img src="img/unknown-icon.png">
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="inventory">
+            <div>Inventory</div>
+        </div>
+        <div id="upgrades">
+            <div id="upgrades_status">
+                <table>
+                    <tr>
+                        <td style="cursor: pointer" onclick="axeUpgrade()">
+                            <div id="tooltip">
+                                <span id="tooltip_axe_text"></span>
+                                <div>Axe Upgrade</div>
+                                <img src="img/axe-icon.png">
+                                <div id="axe_upgrade_level"><hr><hr><hr><hr><hr></div>
+                            </div>
+                        </td>
+                        <td style="cursor: pointer" onclick="pickaxeUpgrade()">
+                            <div id="tooltip">
+                                <span id="tooltip_pickaxe_text"></span>
+                                <div>Pickaxe Upgrade</div>
+                                <img src="img/pickaxe-icon.png">
+                                <div id="pickaxe_upgrade_level"><hr><hr><hr><hr><hr></div>
+                            </div>
+                        </td>
+                        <td style="cursor: pointer" onclick="sickleUpgrade()">
+                            <div id="tooltip">
+                                <span id="tooltip_sickle_text"></span>
+                                <div>Sickle Upgrade</div>
+                                <img src="img/sickle-icon.png">
+                                <div id="sickle_upgrade_level"><hr><hr><hr><hr><hr></div>
+                            </div>
+                        </td>
+                        <td style="cursor: pointer" onclick="bowUpgrade()">
+                            <div id="tooltip">
+                                <span id="tooltip_bow_text"></span>
+                                <div>Bow Upgrade</div>
+                                <img src="img/bow-icon.png">
+                                <div id="bow_upgrade_level"><hr><hr><hr><hr><hr></div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="cursor: pointer" onclick="woodUpgrade()">
+                            <div id="tooltip">
+                                <span id="tooltip_wood_text"></span>
+                                <div>Wood Quantity Upgrade</div>
+                                <img src="img/wood-icon.png">
+                                <div id="wood_upgrade_level"><hr><hr><hr></div>
+                            </div>
+                        </td>
+                        <td style="cursor: pointer" onclick="stoneUpgrade()">
+                            <div id="tooltip">
+                                <span id="tooltip_stone_text"></span>
+                                <div>Stone Quantity Upgrade</div>
+                                <img src="img/stone-icon.png">
+                                <div id="stone_upgrade_level"><hr><hr><hr></div>
+                            </div>
+                        </td>
+                        <td style="cursor: pointer" onclick="wheatUpgrade()">
+                            <div id="tooltip">
+                                <span id="tooltip_wheat_text"></span>
+                                <div>Wheat Quantity Upgrade</div>
+                                <img src="img/wheat-icon.png">
+                                <div id="wheat_upgrade_level"><hr><hr><hr></div>
+                            </div>
+                        </td>
+                        <td>
+                            <div>??????</div>
+                            <img src="img/unknown-icon.png">
+                            <div><hr><hr><hr></div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="market">
+            <table class="table_market">
+                <tr>
+                    <td>
+                        <span>Wood</span>
+                        <hr>
+                        <span>Buy 5$ per piece</span>
+                        <div>
+                            <button class="button" id="w_buy_1" onclick="marketButton(id)">1</button>
+                            <button class="button" id="w_buy_10" onclick="marketButton(id)">10</button>
+                            <button class="button" id="w_buy_100" onclick="marketButton(id)">100</button>
+                        </div>
+                        <hr>
+                        <span>Sell 2$ per piece</span>
+                        <div>
+                            <button class="button" id="w_sell_1" onclick="marketButton(id)">1</button>
+                            <button class="button" id="w_sell_10" onclick="marketButton(id)">10</button>
+                            <button class="button" id="w_sell_100" onclick="marketButton(id)">100</button>
+                        </div>
+                    </td>
+                    <td>
+                        <span>Stone</span>
+                        <hr>
+                        <span>Buy 10$ per piece</span>
+                        <div>
+                            <button class="button" id="s_buy_1" onclick="marketButton(id)">1</button>
+                            <button class="button" id="s_buy_10" onclick="marketButton(id)">10</button>
+                            <button class="button" id="s_buy_100" onclick="marketButton(id)">100</button>
+                        </div>
+                        <hr>
+                        <span>Sell 3$ per piece</span>
+                        <div>
+                            <button class="button" id="s_sell_1" onclick="marketButton(id)">1</button>
+                            <button class="button" id="s_sell_10" onclick="marketButton(id)">10</button>
+                            <button class="button" id="s_sell_100" onclick="marketButton(id)">100</button>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </body>
+</html>
